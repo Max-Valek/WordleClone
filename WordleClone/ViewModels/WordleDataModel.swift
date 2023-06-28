@@ -86,14 +86,12 @@ class WordleDataModel: ObservableObject {
     func enterWord() {
         if currentWord == selectedWord {
             gameOver = true
-            print("You Win!")
             setCurrentGuessColors()
             currentStat.update(win: true, index: tryIndex)
             showToast(with: toastWords[tryIndex])
             inPlay = false
         } else {
             if verifyWord() {
-                print("valid word")
                 setCurrentGuessColors()
                 tryIndex += 1
                 currentWord = ""
@@ -175,6 +173,7 @@ class WordleDataModel: ObservableObject {
         flipCards(for: tryIndex)
     }
     
+    /// Flip cards for a row
     func flipCards(for row: Int) {
         for col in 0...4 {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(col) * 0.2) {
@@ -183,6 +182,7 @@ class WordleDataModel: ObservableObject {
         }
     }
     
+    /// Show toast view with animation
     func showToast(with text: String?) {
         // animate toast view in with text
         withAnimation {
