@@ -16,7 +16,6 @@ struct GameView: View {
             NavigationStack {
                 VStack {
                     Spacer()
-                    
                     // guess grid scaled for device
                     VStack(spacing: 3) {
                         ForEach(0...5, id: \.self) { index in
@@ -37,6 +36,7 @@ struct GameView: View {
                 }
                 .padding()
                 .navigationBarTitleDisplayMode(.inline)
+                .disabled(dm.showStats)
                 .overlay(alignment: .top) {
                     if let toastText = dm.toastText {
                         ToastView(toastText: toastText)
@@ -46,7 +46,6 @@ struct GameView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         HStack {
-                            
                             if !dm.inPlay {
                                 Button {
                                     dm.newGame()
@@ -54,7 +53,6 @@ struct GameView: View {
                                     Text("New")
                                         .foregroundColor(.primary)
                                 }
-
                             }
                             
                             Button(action: {}) {

@@ -196,4 +196,13 @@ class WordleDataModel: ObservableObject {
             }
         }
     }
+    
+    /// share result from game
+    func shareResult() {
+        let stat = Statistic.loadStat()
+        let resultString = """
+Wordle \(stat.games) \(tryIndex < 6 ? "\(tryIndex + 1)/6" : "")
+\(guesses.compactMap { $0.results }.joined(separator: "\n"))
+"""
+    }
 }
