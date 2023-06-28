@@ -12,6 +12,7 @@ class WordleDataModel: ObservableObject {
     @Published var guesses: [Guess] = []
     @Published var incorrectAttempts = [Int](repeating: 0, count: 6)    // for shake animation
     @Published var toastText: String?       // popup text (toast view)
+    @Published var showStats: Bool = false  // show stats view when true
     
     var keyColors = [String : Color]()      // color for each keyboard key
     var matchedLetters = [String]()         // keep track of correct letters (for keyboard colors)
@@ -21,6 +22,7 @@ class WordleDataModel: ObservableObject {
     var tryIndex = 0                        // which try they are on
     var inPlay = false                      // if game has been set up
     var gameOver = false                    // when guess is correct or if no more guesses
+    var currentStat: Statistic
     
     // word to show in toast based on number of guesses it took
     var toastWords = [
@@ -38,6 +40,7 @@ class WordleDataModel: ObservableObject {
     }
     
     init() {
+        currentStat = Statistic.loadStat()
         newGame()
     }
     
@@ -85,6 +88,7 @@ class WordleDataModel: ObservableObject {
             gameOver = true
             print("You Win!")
             setCurrentGuessColors()
+            currentStat.update(win: true, index: tryIndex)
             showToast(with: toastWords[tryIndex])
             inPlay = false
         } else {
@@ -94,9 +98,10 @@ class WordleDataModel: ObservableObject {
                 tryIndex += 1
                 currentWord = ""
                 if tryIndex == 6 {
+                    currentStat.update(win: false)
                     gameOver = true
                     inPlay = false
-                    print("You Lose")
+                    showToast(with: selectedWord)
                 }
             } else {
                 withAnimation {
@@ -186,6 +191,9 @@ class WordleDataModel: ObservableObject {
         // animate out after 3 seconds
         withAnimation(Animation.linear(duration: 0.2).delay(3)) {
             toastText = nil
+            if gameOver {
+                showStats.toggle()
+            }
         }
     }
 }
