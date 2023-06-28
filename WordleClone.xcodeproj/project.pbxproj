@@ -19,6 +19,7 @@
 		9D535D102A4C950B0034881F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D0F2A4C950B0034881F /* Global.swift */; };
 		9D535D122A4C9B170034881F /* LetterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D112A4C9B170034881F /* LetterButtonView.swift */; };
 		9D535D142A4C9C3F0034881F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D132A4C9C3F0034881F /* Keyboard.swift */; };
+		9D535D172A4CAC160034881F /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D162A4CAC160034881F /* Shake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9D535D0F2A4C950B0034881F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		9D535D112A4C9B170034881F /* LetterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterButtonView.swift; sourceTree = "<group>"; };
 		9D535D132A4C9C3F0034881F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		9D535D162A4CAC160034881F /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				9D535D002A4C8D100034881F /* Info.plist */,
 				9D535CEE2A4C8AE70034881F /* WordleCloneApp.swift */,
+				9D535D152A4CAC070034881F /* Animations */,
 				9D535D042A4C8EF10034881F /* Extensions */,
 				9D535D072A4C90950034881F /* Models */,
 				9D535D0C2A4C93A30034881F /* ViewModels */,
@@ -123,6 +126,14 @@
 				9D535D0D2A4C93CE0034881F /* WordleDataModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9D535D152A4CAC070034881F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9D535D162A4CAC160034881F /* Shake.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 				9D535D092A4C90A50034881F /* Guess.swift in Sources */,
 				9D535D142A4C9C3F0034881F /* Keyboard.swift in Sources */,
 				9D535D062A4C8F050034881F /* Color+Extension.swift in Sources */,
+				9D535D172A4CAC160034881F /* Shake.swift in Sources */,
 				9D535D0E2A4C93CE0034881F /* WordleDataModel.swift in Sources */,
 				9D535CEF2A4C8AE70034881F /* WordleCloneApp.swift in Sources */,
 				9D535D102A4C950B0034881F /* Global.swift in Sources */,

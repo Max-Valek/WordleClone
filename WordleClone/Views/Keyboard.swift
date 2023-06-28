@@ -21,6 +21,8 @@ struct Keyboard: View {
                 ForEach(topRowArray, id: \.self) { letter in
                     LetterButtonView(letter: letter)
                 }
+                .disabled(dm.disabledKeys)
+                .opacity(dm.disabledKeys ? 0.6 : 1.0)
             }
             
             // second row
@@ -28,6 +30,8 @@ struct Keyboard: View {
                 ForEach(secondRowArray, id: \.self) { letter in
                     LetterButtonView(letter: letter)
                 }
+                .disabled(dm.disabledKeys)
+                .opacity(dm.disabledKeys ? 0.6 : 1)
             }
             
             // bottom row
@@ -42,21 +46,27 @@ struct Keyboard: View {
                 .frame(width: 60, height: 50)
                 .foregroundColor(.primary)
                 .background(Color.unused)
+                .disabled(dm.currentWord.count < 5 || !dm.inPlay)
+                .opacity((dm.currentWord.count < 5 || !dm.inPlay) ? 0.6 : 1)
                 
                 ForEach(thirdRowArray, id: \.self) { letter in
                     LetterButtonView(letter: letter)
                 }
+                .disabled(dm.disabledKeys)
+                .opacity(dm.disabledKeys ? 0.6 : 1.0)
                 
                 // delete
                 Button {
                     dm.removeLetterFromCurrentWord()
                 } label: {
                     Image(systemName: "delete.backward.fill")
+                        .font(.system(size: 20, weight: .heavy))
+                        .frame(width: 40, height: 50)
+                        .foregroundColor(.primary)
+                        .background(Color.unused)
                 }
-                .font(.system(size: 20, weight: .heavy))
-                .frame(width: 40, height: 50)
-                .foregroundColor(.primary)
-                .background(Color.unused)
+                .disabled(dm.currentWord.count == 0 || !dm.inPlay)
+                .opacity((dm.currentWord.count == 0 || !dm.inPlay) ? 0.6 : 1)
             }
         }
     }
