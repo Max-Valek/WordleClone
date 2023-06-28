@@ -7,18 +7,20 @@
 
 import SwiftUI
 
+// flips a card with new color
 struct FlipView<Front, Back>: View where Front: View, Back: View {
     
     @Binding var isFlipped: Bool        // bound to cardFlipped value for character in guess
     
-    var front: () -> Front
-    var back: () -> Back
+    var front: () -> Front              // view for front of card
+    var back: () -> Back                // view for back of card
     
-    @State var flipped: Bool = false
+    @State var flipped: Bool = false    // whether card is flipped
     
     @State var flashcardRotation = 0.0
     @State var contentRotation = 0.0
     
+    // takes in a binding and front and back views
     init(isFlipped: Binding<Bool>, @ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
         self._isFlipped = isFlipped
         self.front = front

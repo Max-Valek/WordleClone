@@ -36,6 +36,12 @@ struct GameView: View {
             }
             .padding()
             .navigationBarTitleDisplayMode(.inline)
+            .overlay(alignment: .top) {
+                if let toastText = dm.toastText {
+                    ToastView(toastText: toastText)
+                        .offset(y: 20)
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {}) {

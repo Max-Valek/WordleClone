@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shake animation for guess row
+/// Shake animation for guess row when guess is not in dictionary
 struct Shake: GeometryEffect {
     var amount: CGFloat = 10
     var shakesPerUnit = 3

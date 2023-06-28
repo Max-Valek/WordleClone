@@ -11,6 +11,7 @@ class WordleDataModel: ObservableObject {
     
     @Published var guesses: [Guess] = []
     @Published var incorrectAttempts = [Int](repeating: 0, count: 6)    // for shake animation
+    @Published var toastText: String?       // popup text (toast view)
     
     var keyColors = [String : Color]()      // color for each keyboard key
     var matchedLetters = [String]()         // keep track of correct letters (for keyboard colors)
@@ -95,6 +96,7 @@ class WordleDataModel: ObservableObject {
                 withAnimation {
                     self.incorrectAttempts[tryIndex] += 1
                 }
+                showToast(with: "Not in word list.")
                 incorrectAttempts[tryIndex] = 0
             }
         }
@@ -167,6 +169,17 @@ class WordleDataModel: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(col) * 0.2) {
                 self.guesses[row].cardFlipped[col].toggle()
             }
+        }
+    }
+    
+    func showToast(with text: String?) {
+        // animate toast view in with text
+        withAnimation {
+            toastText = text
+        }
+        // animate out after 3 seconds
+        withAnimation(Animation.linear(duration: 0.2).delay(3)) {
+            toastText = nil
         }
     }
 }
