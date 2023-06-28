@@ -15,6 +15,7 @@
 		9D535D062A4C8F050034881F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D052A4C8F050034881F /* Color+Extension.swift */; };
 		9D535D092A4C90A50034881F /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D082A4C90A50034881F /* Guess.swift */; };
 		9D535D0B2A4C92270034881F /* GuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D0A2A4C92270034881F /* GuessView.swift */; };
+		9D535D0E2A4C93CE0034881F /* WordleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D0D2A4C93CE0034881F /* WordleDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9D535D052A4C8F050034881F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		9D535D082A4C90A50034881F /* Guess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 		9D535D0A2A4C92270034881F /* GuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessView.swift; sourceTree = "<group>"; };
+		9D535D0D2A4C93CE0034881F /* WordleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,8 @@
 				9D535D002A4C8D100034881F /* Info.plist */,
 				9D535CEE2A4C8AE70034881F /* WordleCloneApp.swift */,
 				9D535D042A4C8EF10034881F /* Extensions */,
-				9D535D072A4C90950034881F /* Model */,
+				9D535D072A4C90950034881F /* Models */,
+				9D535D0C2A4C93A30034881F /* ViewModels */,
 				9D535D012A4C8DE40034881F /* Views */,
 				9D535CFC2A4C8B270034881F /* Assets.xcassets */,
 				9D535CFE2A4C8B7F0034881F /* Launch Screen.storyboard */,
@@ -97,12 +100,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9D535D072A4C90950034881F /* Model */ = {
+		9D535D072A4C90950034881F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9D535D082A4C90A50034881F /* Guess.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D535D0C2A4C93A30034881F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9D535D0D2A4C93CE0034881F /* WordleDataModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 				9D535D0B2A4C92270034881F /* GuessView.swift in Sources */,
 				9D535D092A4C90A50034881F /* Guess.swift in Sources */,
 				9D535D062A4C8F050034881F /* Color+Extension.swift in Sources */,
+				9D535D0E2A4C93CE0034881F /* WordleDataModel.swift in Sources */,
 				9D535CEF2A4C8AE70034881F /* WordleCloneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
