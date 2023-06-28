@@ -96,6 +96,7 @@ struct GameView: View {
                 StatsView()
             }
         }
+        .preferredColorScheme(.dark)
     }
 }
 

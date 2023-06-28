@@ -31,6 +31,7 @@ struct StatsView: View {
                 .font(.headline)
                 .fontWeight(.bold)
             
+            // bar chart
             VStack(spacing: 5) {
                 ForEach(0..<5) { index in
                     HStack {
@@ -45,20 +46,16 @@ struct StatsView: View {
                                 )
                         } else {
                             if let maxValue = dm.currentStat.frequencies.max() {
-                                
                                 Rectangle()
                                     .fill(
                                         (dm.tryIndex == index && dm.gameOver)
                                         ? Color.correct
                                         : Color.wrong
                                     )
-                                
-                                // ERROR IN HERE
                                     .frame(
                                         width: CGFloat(dm.currentStat.frequencies[index]) / CGFloat(maxValue) * 210,
                                         height: 20
                                     )
-                                
                                     .overlay(
                                         Text("\(dm.currentStat.frequencies[index])")
                                             .foregroundColor(.white)
@@ -72,6 +69,7 @@ struct StatsView: View {
                 }
             }
             
+            // share button if game over
             if dm.gameOver {
                 HStack {
                     Spacer()

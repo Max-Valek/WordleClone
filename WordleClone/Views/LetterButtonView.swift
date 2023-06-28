@@ -20,7 +20,8 @@ struct LetterButtonView: View {
             Text(letter)
                 .font(.system(size: 20))
                 .frame(width: 35, height: 50)
-                .background(dm.keyColors[letter])
+                .background((dm.keyColors[letter]?.opacity(0.3).gradient)!)
+                .border(.white.opacity(0.2))
                 .foregroundColor(.primary)
         }
         .buttonStyle(.plain)

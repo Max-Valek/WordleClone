@@ -13,7 +13,10 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
+        
         NavigationStack {
+            
+            // light/dark mode picker
             VStack {
                 Text("Change Theme")
                 Picker("Display Mode", selection: $csManager.colorScheme) {
@@ -31,6 +34,7 @@ struct SettingsView: View {
             .navigationTitle("Options")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                // x button
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()

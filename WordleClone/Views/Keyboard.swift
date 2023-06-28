@@ -10,6 +10,7 @@ import SwiftUI
 struct Keyboard: View {
     
     @EnvironmentObject var dm: WordleDataModel
+    // arrays for keyboard rows
     var topRowArray = "QWERTYUIOP".map { String($0) }
     var secondRowArray = "ASDFGHJKL".map { String($0) }
     var thirdRowArray = "ZXCVBNM".map { String($0) }
