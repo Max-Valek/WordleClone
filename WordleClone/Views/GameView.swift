@@ -44,8 +44,21 @@ struct GameView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {}) {
-                        Image(systemName: "questionmark.circle")
+                    HStack {
+                        
+                        if !dm.inPlay {
+                            Button {
+                                dm.newGame()
+                            } label: {
+                                Text("New")
+                                    .foregroundColor(.primary)
+                            }
+
+                        }
+                        
+                        Button(action: {}) {
+                            Image(systemName: "questionmark.circle")
+                        }
                     }
                 }
                 ToolbarItem(placement: .principal) {
