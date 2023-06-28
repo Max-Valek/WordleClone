@@ -22,7 +22,7 @@ class WordleDataModel: ObservableObject {
     // set default values
     func populateDefaults() {
         guesses = []
-        for i in 0...4 {
+        for i in 0...5 {
             guesses.append(Guess(index: i))
         }
     }
