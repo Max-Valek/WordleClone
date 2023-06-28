@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// for sharing screen. different for iphone and ipad so need this
 extension UIWindow {
     
     static var key: UIWindow? {

@@ -43,7 +43,6 @@ struct Keyboard: View {
             // MARK: - THIRD ROW
             
             HStack(spacing: 2) {
-                // enter
                 Button {
                     dm.enterWord()
                 } label: {
