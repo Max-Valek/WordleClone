@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FlipView<Front, Back>: View where Front: View, Back: View {
     
-    @Binding var isFlipped: Bool
+    @Binding var isFlipped: Bool        // bound to cardFlipped value for character in guess
     
     var front: () -> Front
     var back: () -> Back
