@@ -17,6 +17,7 @@
 		9D535D0B2A4C92270034881F /* GuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D0A2A4C92270034881F /* GuessView.swift */; };
 		9D535D0E2A4C93CE0034881F /* WordleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D0D2A4C93CE0034881F /* WordleDataModel.swift */; };
 		9D535D102A4C950B0034881F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D0F2A4C950B0034881F /* Global.swift */; };
+		9D535D122A4C9B170034881F /* LetterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D112A4C9B170034881F /* LetterButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9D535D0A2A4C92270034881F /* GuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessView.swift; sourceTree = "<group>"; };
 		9D535D0D2A4C93CE0034881F /* WordleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleDataModel.swift; sourceTree = "<group>"; };
 		9D535D0F2A4C950B0034881F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		9D535D112A4C9B170034881F /* LetterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			children = (
 				9D535D022A4C8DF50034881F /* GameView.swift */,
 				9D535D0A2A4C92270034881F /* GuessView.swift */,
+				9D535D112A4C9B170034881F /* LetterButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D535D122A4C9B170034881F /* LetterButtonView.swift in Sources */,
 				9D535D032A4C8DF50034881F /* GameView.swift in Sources */,
 				9D535D0B2A4C92270034881F /* GuessView.swift in Sources */,
 				9D535D092A4C90A50034881F /* Guess.swift in Sources */,
