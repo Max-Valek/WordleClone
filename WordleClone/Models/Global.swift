@@ -43,4 +43,20 @@ enum Global {
             return 500
         }
     }
+    
+    // scale keyboard based on device (all based on iphone design)
+    static var keyboardScale: CGFloat {
+        switch minDimension {
+        // up to width of largest iPhone (in portrait mode)
+        case 0...430:
+            // screen width / width of iphone 13 pro
+            return screenWidth / 390
+        // mid sized ipad
+        case 431...1000:
+            return CGFloat(1.2)
+        // large ipad
+        default:
+            return CGFloat(1.6)
+        }
+    }
 }

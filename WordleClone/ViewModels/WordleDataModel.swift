@@ -29,7 +29,7 @@ class WordleDataModel: ObservableObject {
             guesses.append(Guess(index: i))
         }
         // reset keyboard colors
-        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYK"
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for char in letters {
             keyColors[String(char)] = .unused
         }
@@ -37,6 +37,14 @@ class WordleDataModel: ObservableObject {
     
     // MARK: - Game Play
     func addToCurrentWord(_ letter: String) {
+        
+    }
+    
+    func enterWord() {
+        
+    }
+    
+    func removeLetterFromCurrentWord() {
         
     }
 }
