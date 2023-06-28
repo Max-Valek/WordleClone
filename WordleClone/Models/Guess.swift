@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+/// Represents one word guessed by the user
 struct Guess {
-    
+    // which guess it was (0...5+)
     let index: Int
     // initially just 5 spaces
     var word = "     "
-    // backgrounds for characters
+    // background for each character
     var bgColors = [Color](repeating: .systemBackground, count: 5)
     // whether the character is flipped
     var cardFlipped = [Bool](repeating: false, count: 5)
