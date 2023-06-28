@@ -18,13 +18,13 @@ struct GuessView: View {
             // cell for each letter in guess
             ForEach(0...4, id: \.self) { index in
                 FlipView(isFlipped: $guess.cardFlipped[index]) {
-                    // front
+                    // front (not flipped)
                     Text(guess.guessLetters[index])
                         .foregroundColor(.primary)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                         .background(Color.systemBackground)
                 } back: {
-                    // back
+                    // back (flipped)
                     Text(guess.guessLetters[index])
                         .foregroundColor(.white)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)

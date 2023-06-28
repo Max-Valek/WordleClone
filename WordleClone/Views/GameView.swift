@@ -28,7 +28,6 @@ struct GameView: View {
                     
                     Spacer()
                     
-                    // keyboard scaled for device
                     Keyboard()
                         .scaleEffect(Global.keyboardScale)
                         .padding(.top)
@@ -38,6 +37,7 @@ struct GameView: View {
                 .padding()
                 .navigationBarTitleDisplayMode(.inline)
                 .disabled(dm.showStats)
+                // show toast view (popup) if its text isnt nil
                 .overlay(alignment: .top) {
                     if let toastText = dm.toastText {
                         ToastView(toastText: toastText)
@@ -45,6 +45,7 @@ struct GameView: View {
                     }
                 }
                 .toolbar {
+                    // new game and help buttons
                     ToolbarItem(placement: .navigationBarLeading) {
                         HStack {
                             if !dm.inPlay {
@@ -61,12 +62,14 @@ struct GameView: View {
                             }
                         }
                     }
+                    // title (WORDLE)
                     ToolbarItem(placement: .principal) {
                         Text("WORDLE")
                             .font(.largeTitle)
                             .fontWeight(.heavy)
                             .foregroundColor(.primary)
                     }
+                    // stats and settings buttons
                     ToolbarItem(placement: .navigationBarTrailing) {
                         HStack {
                             Button {

@@ -31,35 +31,46 @@ struct StatsView: View {
                 .font(.headline)
                 .fontWeight(.bold)
             
-//            VStack(spacing: 5) {
-//                ForEach(0..<5) { index in
-//                    HStack {
-//                        Text("\(index + 1)")
-//                        if dm.currentStat.frequencies[index] == 0 {
-//                            Rectangle()
-//                                .fill(Color.wrong)
-//                                .frame(width: 22, height: 20)
-//                                .overlay(
-//                                    Text("0")
-//                                        .foregroundColor(.white)
-//                                )
-//                        } else {
-//                            if let maxValue = dm.currentStat.frequencies.max() {
-//                                Rectangle()
-//                                    .fill((dm.tryIndex == index && dm.gameOver) ? Color.correct : Color.wrong)
-//                                    .frame(width: CGFloat(dm.currentStat.frequencies[index] / CGFloat(maxValue) * 210), height: 20)
-//                                    .overlay(
-//                                        Text("\(dm.currentStat.frequencies[index])")
-//                                            .foregroundColor(.white)
-//                                            .padding(.horizontal, 5)
-//                                    )
-//                            }
-//                        }
-//
-//                        Spacer()
-//                    }
-//                }
-//            }
+            VStack(spacing: 5) {
+                ForEach(0..<5) { index in
+                    HStack {
+                        Text("\(index + 1)")
+                        if dm.currentStat.frequencies[index] == 0 {
+                            Rectangle()
+                                .fill(Color.wrong)
+                                .frame(width: 22, height: 20)
+                                .overlay(
+                                    Text("0")
+                                        .foregroundColor(.white)
+                                )
+                        } else {
+                            if let maxValue = dm.currentStat.frequencies.max() {
+                                
+                                Rectangle()
+                                    .fill(
+                                        (dm.tryIndex == index && dm.gameOver)
+                                        ? Color.correct
+                                        : Color.wrong
+                                    )
+                                
+                                // ERROR IN HERE
+                                    .frame(
+                                        width: CGFloat(dm.currentStat.frequencies[index]) / CGFloat(maxValue) * 210,
+                                        height: 20
+                                    )
+                                
+                                    .overlay(
+                                        Text("\(dm.currentStat.frequencies[index])")
+                                            .foregroundColor(.white)
+                                            .padding(.horizontal, 5)
+                                    )
+                            }
+                        }
+
+                        Spacer()
+                    }
+                }
+            }
             
             if dm.gameOver {
                 HStack {
@@ -91,6 +102,7 @@ struct StatsView: View {
 }
 
 extension StatsView {
+    // dismiss
     private var xButton: some View {
         HStack {
             Spacer()
@@ -104,7 +116,7 @@ extension StatsView {
             .offset(x: 20, y: 10)
         }
     }
-    
+    // row of stats
     private var stats: some View {
         HStack(alignment: .top) {
             SingleStat(value: dm.currentStat.games, text: "Played")
@@ -119,6 +131,7 @@ extension StatsView {
     }
 }
 
+// vstack with value and label for one stat
 struct SingleStat: View {
     
     let value: Int
