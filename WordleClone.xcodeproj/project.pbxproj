@@ -13,6 +13,7 @@
 		9D535CFF2A4C8B7F0034881F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D535CFE2A4C8B7F0034881F /* Launch Screen.storyboard */; };
 		9D535D032A4C8DF50034881F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D022A4C8DF50034881F /* GameView.swift */; };
 		9D535D062A4C8F050034881F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D052A4C8F050034881F /* Color+Extension.swift */; };
+		9D535D092A4C90A50034881F /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D535D082A4C90A50034881F /* Guess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9D535D002A4C8D100034881F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9D535D022A4C8DF50034881F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		9D535D052A4C8F050034881F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		9D535D082A4C90A50034881F /* Guess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				9D535D002A4C8D100034881F /* Info.plist */,
 				9D535CEE2A4C8AE70034881F /* WordleCloneApp.swift */,
 				9D535D042A4C8EF10034881F /* Extensions */,
+				9D535D072A4C90950034881F /* Model */,
 				9D535D012A4C8DE40034881F /* Views */,
 				9D535CFC2A4C8B270034881F /* Assets.xcassets */,
 				9D535CFE2A4C8B7F0034881F /* Launch Screen.storyboard */,
@@ -89,6 +92,14 @@
 				9D535D052A4C8F050034881F /* Color+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9D535D072A4C90950034881F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D535D082A4C90A50034881F /* Guess.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D535D032A4C8DF50034881F /* GameView.swift in Sources */,
+				9D535D092A4C90A50034881F /* Guess.swift in Sources */,
 				9D535D062A4C8F050034881F /* Color+Extension.swift in Sources */,
 				9D535CEF2A4C8AE70034881F /* WordleCloneApp.swift in Sources */,
 			);

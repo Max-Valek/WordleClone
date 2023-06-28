@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 extension Color {
     // Colors from assets
     static var wrong: Color { Color(UIColor(named: "wrong")!) }
