@@ -14,6 +14,7 @@ struct LetterButtonView: View {
     
     var body: some View {
         Button {
+            // append pressed letter to current guess
             dm.addToCurrentWord(letter)
         } label: {
             Text(letter)

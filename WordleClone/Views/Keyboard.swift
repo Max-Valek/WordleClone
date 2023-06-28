@@ -15,17 +15,22 @@ struct Keyboard: View {
     var thirdRowArray = "ZXCVBNM".map { String($0) }
     
     var body: some View {
+        
         VStack {
-            // top row
+            
+            // MARK: - TOP ROW
+            
             HStack(spacing: 2) {
                 ForEach(topRowArray, id: \.self) { letter in
                     LetterButtonView(letter: letter)
                 }
+                // disabled if game not setup or input is full guess length
                 .disabled(dm.disabledKeys)
                 .opacity(dm.disabledKeys ? 0.6 : 1.0)
             }
             
-            // second row
+            // MARK: - SECOND ROW
+            
             HStack(spacing: 2) {
                 ForEach(secondRowArray, id: \.self) { letter in
                     LetterButtonView(letter: letter)
@@ -34,7 +39,8 @@ struct Keyboard: View {
                 .opacity(dm.disabledKeys ? 0.6 : 1)
             }
             
-            // bottom row
+            // MARK: - THIRD ROW
+            
             HStack(spacing: 2) {
                 // enter
                 Button {
@@ -46,6 +52,7 @@ struct Keyboard: View {
                 .frame(width: 60, height: 50)
                 .foregroundColor(.primary)
                 .background(Color.unused)
+                // disabled if not enough chars or game not set up
                 .disabled(dm.currentWord.count < 5 || !dm.inPlay)
                 .opacity((dm.currentWord.count < 5 || !dm.inPlay) ? 0.6 : 1)
                 
@@ -65,6 +72,7 @@ struct Keyboard: View {
                         .foregroundColor(.primary)
                         .background(Color.unused)
                 }
+                // disabled if input empty or game not set up
                 .disabled(dm.currentWord.count == 0 || !dm.inPlay)
                 .opacity((dm.currentWord.count == 0 || !dm.inPlay) ? 0.6 : 1)
             }

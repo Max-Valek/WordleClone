@@ -15,6 +15,7 @@ struct GuessView: View {
     var body: some View {
         
         HStack(spacing: 3) {
+            // cell for each letter in guess
             ForEach(0...4, id: \.self) { index in
                 Text(guess.guessLetters[index])
                     .foregroundColor(.primary)

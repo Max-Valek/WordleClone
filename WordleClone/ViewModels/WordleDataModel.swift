@@ -10,23 +10,20 @@ import SwiftUI
 class WordleDataModel: ObservableObject {
     
     @Published var guesses: [Guess] = []
-    @Published var incorrectAttempts = [Int](repeating: 0, count: 6)
+    @Published var incorrectAttempts = [Int](repeating: 0, count: 6)    // for shake animation
     
-    var keyColors = [String : Color]()
-    // words to be guessed
-    var selectedWord = ""
-    // word for current guess
-    var currentWord = ""
-    // which try they are on
-    var tryIndex = 0
-    var inPlay = false
+    var keyColors = [String : Color]()      // color for each keyboard key
+    var selectedWord = ""       // word to be guessed
+    var currentWord = ""        // word user is currently typing
+    var tryIndex = 0            // which try they are on
+    var inPlay = false          // if game has been set up
     
-    // true if still initial try and user hasnt typed any letters
+    // started if not first try or user has inputted letters
     var gameStarted: Bool {
         !currentWord.isEmpty || tryIndex > 0
     }
     
-    // for disabling letter keys
+    // disable letter keys if game not set up or input is full length
     var disabledKeys: Bool {
         !inPlay || currentWord.count == 5
     }
@@ -36,6 +33,8 @@ class WordleDataModel: ObservableObject {
     }
     
     // MARK: - Setup
+    
+    // set defaults, select random word, inplay = true
     func newGame() {
         populateDefaults()
         selectedWord = Global.commonWords.randomElement()!
@@ -43,7 +42,7 @@ class WordleDataModel: ObservableObject {
         inPlay = true
     }
     
-    // set default values
+    // set guesses to be default Guess array and set all key colors to unused
     func populateDefaults() {
         guesses = []
         for i in 0...5 {
@@ -57,11 +56,14 @@ class WordleDataModel: ObservableObject {
     }
     
     // MARK: - Game Play
+    
+    // letter key pressed
     func addToCurrentWord(_ letter: String) {
         currentWord += letter
         updateRow()
     }
     
+    // enter key pressed
     func enterWord() {
         if verifyWord() {
             print("valid word")
@@ -73,18 +75,21 @@ class WordleDataModel: ObservableObject {
         }
     }
     
+    // backspace pressed
     func removeLetterFromCurrentWord() {
         currentWord.removeLast()
         updateRow()
     }
     
+    // update guess row with current input, spaces at end if not full 5 letters
     func updateRow() {
         let guessWord = currentWord.padding(toLength: 5, withPad: " ", startingAt: 0)
         guesses[tryIndex].word = guessWord
     }
     
+    // true if word is in device's dictionary
+    // (had to select simulator dictionary: settings->general->dictionary)
     func verifyWord() -> Bool {
-        // see if word is in device's dictionary (had to select simulator dictionary: settings->general->dictionary)
         UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: currentWord)
     }
 }

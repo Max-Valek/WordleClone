@@ -15,6 +15,8 @@ struct GameView: View {
         NavigationStack {
             VStack {
                 Spacer()
+                
+                // guess grid scaled for device
                 VStack(spacing: 3) {
                     ForEach(0...5, id: \.self) { index in
                         GuessView(guess: $dm.guesses[index])
@@ -22,10 +24,14 @@ struct GameView: View {
                     }
                 }
                 .frame(width: Global.boardWidth, height: 6 * Global.boardWidth / 5)
+                
                 Spacer()
+                
+                // keyboard scaled for device
                 Keyboard()
                     .scaleEffect(Global.keyboardScale)
                     .padding(.top)
+                
                 Spacer()
             }
             .padding()
