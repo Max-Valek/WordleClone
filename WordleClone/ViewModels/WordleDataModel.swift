@@ -22,6 +22,11 @@ class WordleDataModel: ObservableObject {
     var inPlay = false                      // if game has been set up
     var gameOver = false                    // when guess is correct or if no more guesses
     
+    // word to show in toast based on number of guesses it took
+    var toastWords = [
+        "Genius", "Magnificent", "Impressive", "Splendid", "Great", "Phew"
+    ]
+    
     /// started if not first try or user has inputted letters
     var gameStarted: Bool {
         !currentWord.isEmpty || tryIndex > 0
@@ -80,6 +85,7 @@ class WordleDataModel: ObservableObject {
             gameOver = true
             print("You Win!")
             setCurrentGuessColors()
+            showToast(with: toastWords[tryIndex])
             inPlay = false
         } else {
             if verifyWord() {
