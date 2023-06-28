@@ -13,6 +13,8 @@ class WordleDataModel: ObservableObject {
     @Published var incorrectAttempts = [Int](repeating: 0, count: 6)    // for shake animation
     
     var keyColors = [String : Color]()      // color for each keyboard key
+    var matchedLetters = [String]()         // keep track of correct letters (for keyboard colors)
+    var misplacedLetters = [String]()       // keep track of misplaced letters (for keyboard colors)
     var selectedWord = ""                   // word to be guessed
     var currentWord = ""                    // word user is currently typing
     var tryIndex = 0                        // which try they are on
@@ -57,6 +59,8 @@ class WordleDataModel: ObservableObject {
         for char in letters {
             keyColors[String(char)] = .unused
         }
+        matchedLetters = []
+        misplacedLetters = []
     }
     
     // MARK: - Game Play
@@ -132,10 +136,27 @@ class WordleDataModel: ObservableObject {
             let guessed = guesses[tryIndex].guessLetters[i]
             if guessed == correctLetters[i] {
                 guesses[tryIndex].bgColors[i] = Color.correct
+                if !matchedLetters.contains(guessed) {
+                    matchedLetters.append(guessed)
+                    keyColors[guessed] = .correct
+                }
+                if misplacedLetters.contains(guessed) {
+                    if let index = misplacedLetters.firstIndex(where: { $0 == guessed }) {
+                        misplacedLetters.remove(at: index)
+                    }
+                }
                 freq[guessed]! -= 1
             } else if correctLetters.contains(guessed) && freq[guessed]! > 0 {
                 guesses[tryIndex].bgColors[i] = Color.misplaced
+                if !misplacedLetters.contains(guessed) {
+                    misplacedLetters.append(guessed)
+                    keyColors[guessed] = .misplaced
+                }
                 freq[guessed]! -= 1
+            } else {
+                if keyColors[guessed] != .correct && keyColors[guessed] != .misplaced {
+                    keyColors[guessed] = .wrong
+                }
             }
         }
         flipCards(for: tryIndex)
