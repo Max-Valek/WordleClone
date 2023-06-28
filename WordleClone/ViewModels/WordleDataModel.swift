@@ -115,23 +115,23 @@ class WordleDataModel: ObservableObject {
     
     /// Set background colors for guess characters
     func setCurrentGuessColors() {
-        // array of characters (as strings) in correct word
+        // correct word as string array
         let correctLetters = selectedWord.map { String($0) }
+        
         // frequency for each letter in correct word
         var freq = [String : Int]()
         for letter in correctLetters {
             freq[letter, default: 0] += 1
         }
         
-        for i in 0...4 {
-            let correctLetter = correctLetters[i]
-            let guessedLetter = guesses[tryIndex].guessLetters[i]
-            if guessedLetter == correctLetter {
+        for i in 0..<correctLetters.count {
+            let guessed = guesses[tryIndex].guessLetters[i]
+            if guessed == correctLetters[i] {
                 guesses[tryIndex].bgColors[i] = Color.correct
-                freq[guessedLetter]! -= 1
-            } else if correctLetters.contains(guessedLetter) && freq[guessedLetter]! > 0 {
+                freq[guessed]! -= 1
+            } else if correctLetters.contains(guessed) && freq[guessed]! > 0 {
                 guesses[tryIndex].bgColors[i] = Color.misplaced
-                freq[guessedLetter]! -= 1
+                freq[guessed]! -= 1
             }
         }
     }
