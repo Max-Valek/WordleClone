@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Guess {
+    
     let index: Int
     // initially just 5 spaces
     var word = "     "
