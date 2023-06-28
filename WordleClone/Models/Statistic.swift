@@ -39,5 +39,14 @@ struct Statistic: Codable {
         }
     }
     
-    
+    // no index passed if didnt win
+    mutating func update(win: Bool, index: Int? = nil) {
+        games += 1
+        streak = win ? streak + 1 : 0
+        if win {
+            frequencies[index!] += 1
+            maxStreak = max(maxStreak, streak)
+        }
+        saveStat()
+    }
 }
